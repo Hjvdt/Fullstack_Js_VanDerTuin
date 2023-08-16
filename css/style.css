@@ -40,10 +40,6 @@ body {
 		"footer";
 }
 
-#hero {
-	background-image: url("../img/fondoTubos.jpg");
-}
-
 header {
 	grid-area: header;
 	background-color: #a583c5;
@@ -140,7 +136,7 @@ main {
 }
 
 #box-container .contenedor .box .card:nth-child(2) {
-	background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/resultados.jpg");
+	background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/contactenos.png");
 }
 
 #box-container .contenedor .box .card:nth-child(3) {
@@ -205,7 +201,7 @@ main {
 }
 
 .bg-contacto {
-	background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/contact.jpg");
+	background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/contactenos.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
@@ -368,73 +364,6 @@ main .busqueda form .barra {
 	padding-left: 4px;
 }
 
-footer {
-	display: grid;
-	width: 100%;
-	height: 5px;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, 1fr);
-	background-color: #646464;
-}
-
-footer .contacto {
-	margin-top: 10px;
-	grid-column: 1/2;
-}
-
-footer .contacto p {
-	font-size: 1em;
-	font-weight: 600;
-	padding-left: 10px;
-}
-
-footer .contacto ul li {
-	text-decoration: none;
-	list-style: none;
-	padding: 0%;
-}
-
-footer .contacto ul li strong {
-	font-size: 0.75em;
-	color: black;
-	text-decoration: none;
-	list-style: none;
-}
-
-footer .redes {
-	margin-top: 10px;
-	grid-column: 2/3;
-}
-
-footer .redes p {
-	font-size: 1em;
-	font-weight: 600;
-	display: flex;
-	flex-direction: row-reverse;
-	padding-right: 20px;
-}
-
-footer .redes .seguinos {
-	display: flex;
-	flex-direction: row-reverse;
-	align-items: center;
-	padding-right: 40px;
-}
-
-footer .redes .seguinos ul li {
-	text-decoration: none;
-	list-style: none;
-}
-
-footer .derechos {
-	grid-column: 1/3;
-	grid-row: 2/3;
-}
-
-footer .derechos p {
-	font-size: 0.5em;
-	justify-content: center;
-}
 
 @media (min-width: 768px) {
 	#box-container1 h1 {
@@ -608,35 +537,7 @@ footer .derechos p {
 		margin-top: 50px;
 	}
 
-	footer {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat(2, 1fr);
-		justify-content: none;
-		align-items: none;
-		grid-template-areas: none;
-	}
-
-	footer .contacto {
-		margin-top: 10px;
-		grid-column: 2/3;
-	}
-
-	footer .redes {
-		margin-top: 10px;
-		grid-column: 3/4;
-	}
-
-	footer .derechos {
-		grid-column: 4/5;
-		grid-row: 2/3;
-	}
-
-	footer .derechos p {
-		font-size: 0.7em;
-		justify-content: right;
-	}
-}
+	
 
 @media screen and (min-width: 1440px) {
 	.navbar-brand img {
@@ -690,31 +591,6 @@ footer .derechos p {
 	#final {
 		font-size: 2em;
 		text-shadow: 3px 2px blueviolet;
-	}
-
-	footer .contacto {
-		padding-left: 60px;
-	}
-
-	footer .contacto p {
-		font-size: 1.5em;
-	}
-
-	footer .contacto ul {
-		padding-left: 40px;
-	}
-
-	footer .redes {
-		padding-right: 60px;
-		font-size: 1.5em;
-	}
-
-	footer .redes .seguinos {
-		padding-right: 40px;
-	}
-
-	footer .derechos p {
-		font-size: 1em;
 	}
 
 	.contenedor-turno .imgturnos {
@@ -789,53 +665,54 @@ footer .derechos p {
 }
 
 .body {
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/ingreso.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+	background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/ingreso.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .form {
-    display: none;
-    max-width: 300px;
-    margin: 10px;
+	display: none;
+	max-width: 300px;
+	margin: 10px;
 }
 
 .form h2 {
-    margin-top: 0;
-    color: white;
+	margin-top: 0;
+	color: white;
 }
 
 .form p {
-    color: white;
+	color: white;
 }
 
 .form input {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 5px;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 5px;
 }
 
 .form button {
-    background-color: #954caf;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin-bottom: 10px;
-    cursor: pointer;
+	background-color: #954caf;
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin-bottom: 10px;
+	cursor: pointer;
 }
 
 .form a {
-    text-decoration: underline;
-    cursor: pointer;
-    color: cornflowerblue;
+	text-decoration: underline;
+	cursor: pointer;
+	color: cornflowerblue;
+}
 }

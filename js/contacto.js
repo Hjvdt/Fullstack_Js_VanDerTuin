@@ -1,62 +1,50 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', handleSubmit);
-});
+let contactos = [];
 
-function handleSubmit(event) {
+const nombreInput = document.getElementById('nombre');
+const apellidoInput = document.getElementById('apellido');
+const emailInput = document.getElementById('email');
+const telefonoInput = document.getElementById('phone');
+const mensajeInput = document.getElementById('message');
+const formulario = document.getElementById('contactForm');
+
+formulario.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    const nombre = document.getElementById('nombre').value;
-    const apellido = document.getElementById('apellido').value;
-    const telefono = document.getElementById('phone').value;
-    const email = document.getElementById('email').value;
-    const mensaje = document.getElementById('message').value;
+    const nombre = nombreInput.value;
+    const apellido = apellidoInput.value;
+    const email = emailInput.value;
+    const telefono = telefonoInput.value;
+    const mensaje = mensajeInput.value;
 
-    if (!validateInput(nombre, apellido, telefono, email, mensaje)) {
-        return;
+    const contacto = {
+        nombre,
+        apellido,
+        email,
+        telefono,
+        mensaje
+    };
+
+    contactos.push(contacto);
+
+    localStorage.setItem('contactos', JSON.stringify(contactos));
+
+    nombreInput.value = '';
+    apellidoInput.value = '';
+    emailInput.value = '';
+    telefonoInput.value = '';
+    mensajeInput.value = '';
+
+    Swal.fire({
+        icon: 'success',
+        title: '¡Éxito!',
+        text: 'Su mensaje ha sido enviado correctamente.',
+    });
+});
+
+window.addEventListener('load', function () {
+    const contactosGuardados = localStorage.getItem('contactos');
+    if (contactosGuardados) {
+        contactos = JSON.parse(contactosGuardados);
     }
+});
 
-    const confirmationMessage = `Confirma los datos ingresados?: 
-* Apellido: ${apellido}
-* Nombre: ${nombre}
-* Telefono: ${telefono}
-* Mail: ${email}
-* Consulta: ${mensaje}`;
-
-    if (confirm(confirmationMessage)) {
-        alert("Gracias por dejarnos su consulta. Pronto nos comunicaremos con Ud.");
-        const data = {
-            nombre,
-            apellido,
-            telefono,
-            email,
-            mensaje,
-        };
-        localStorage.setItem('contactData', JSON.stringify(data));
-        reset
-        resetForm();
-    } else {
-        alert("Ingresa nuevamente los datos");
-    }
-}
-
-function validateInput(nombre, apellido, telefono, email, mensaje) {
-    if (nombre.trim() === "" || apellido.trim() === "" || telefono.trim() === "" || email.trim() === "" || mensaje.trim() === "") {
-        alert("Todos los campos son obligatorios. Por favor, complete todos los campos.");
-        return false;
-    }
-
-    if (isNaN(telefono)) {
-        alert("Debes ingresar un número válido para el teléfono.");
-        return false;
-    }
-    return true;
-}
-
-function resetForm() { 
-    document.getElementById('nombre').value = '';
-    document.getElementById('apellido').value = '';
-    document.getElementById('phone').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('message').value = '';
-    }

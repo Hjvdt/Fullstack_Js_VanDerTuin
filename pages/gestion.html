@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Laboratorio de Análisis Clínicos</title>
+        <link rel="stylesheet" href="../css/styles.css">
+
+    </head>
+    <body id="body">
+        <h1>Laboratorio de Análisis Clínicos - Gestion de turnos</h1>
+        <div id="gestionTurnos">
+            <form id="buscarTurnoForm">
+                <label for="numeroHistoria">Número de Historia Clínica:</label>
+                <input type="text" id="numeroHistoria" required>
+                <button type="button" id="btnBuscar">Buscar Turno</button>
+            </form>
+            <div id="resultado"></div>
+            
+        </div>
+        <div id="volver">
+            <button id="btnVolver" class="btnVolver">Volver</button>
+        </div>
+        <script src="../js/gestion.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </body>
+</html>
