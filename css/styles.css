@@ -206,3 +206,9 @@ button:hover {
   top: 20px;
   right: 20px;
 }
+
+#foto {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+}

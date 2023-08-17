@@ -27,8 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <button id="btnEliminar" class="btnEliminar">Eliminar Turno</button>
                     <button id="btnVolver" class="btnVolver">Volver a la Página Anterior</button>
                     <button id="btnVolverBuscar" class="btnVolverBuscar">Volver a Buscar</button>
-                    
                 `;
+                
+                
+
                 const btnEliminarTurno = document.getElementById("btnEliminar");
 
                 btnEliminarTurno.addEventListener("click", (event) => {
@@ -92,3 +94,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
     gestionTurnos.addEventListener("click", cargaGestionTurnos);
 });
+
+
+// const photoUrl = obtenerFoto(turnoEncontrado.historiaClinica);
+//                 if (photoUrl) {
+//                     resultadoBuscar.innerHTML += `
+//                         <img src="${photoUrl}" alt="Foto del paciente">
+//                     `;
+//                 }
+
+const apiKey = 'Kq32XpAkiGWsBayooG8dUI5SaASwsGWnywjZzhwe45vAdZA7JtgaiOd8';
+const searchQuery = 'clinic laboratory';
+
+function obtenerFoto() {
+    const url = `https://api.pexels.com/v1/search?query=${searchQuery}&per_page=1&page=${Math.floor(Math.random() * 100) + 1}`;
+        return fetch(url, {
+            headers: {
+                'Authorization': apiKey
+            }
+        })
+        .then((response) => response.json())
+        .then(data => {
+            const foto = data.photos[0];
+            return foto.src.medium;
+        })
+        .catch((error) => {
+            console.error('Error al obtener los datos', error);
+        });
+    }
+
+    function actualizaHeader() {
+        obtenerFoto(searchQuery).then(imageUrl => {
+            const headerImg = document.getElementById('foto');
+            headerImg.src = imageUrl;
+        });
+    }
+
+document.addEventListener('DOMContentLoaded', actualizaHeader);
+
+
